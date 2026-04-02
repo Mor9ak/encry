@@ -1,10 +1,10 @@
-import CaesarThing from "../widgets/CaesarThing";
+import SectionHolder from "../widgets/SectionHolder";
 
 
 const App = () => {
     return (
         <div>
-            <CaesarThing />
+            <SectionHolder />
         </div>
     );
 }

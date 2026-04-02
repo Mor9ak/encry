@@ -1,13 +1,13 @@
 interface CaesarInput {
     text: string;
     alphabet: string;
-    step: number;
+    key: number;
 }
 
 const CaesarMech = (props: CaesarInput) => {
 
     const alphabet = props.alphabet.toLowerCase();
-    const step = props.step;
+    const key = props.key;
     const inputText = props.text.toLowerCase();
 
     let text: string = "";
@@ -17,7 +17,7 @@ const CaesarMech = (props: CaesarInput) => {
         const index = alphabet.indexOf(char);
 
         if (index !== -1) {
-            const newIndex = (index + step) % alphabet.length;
+            const newIndex = (index + key) % alphabet.length;
             text += alphabet[newIndex];
         } else {
             text += char;
