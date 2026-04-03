@@ -15,4 +15,4 @@ const MirrorMech = (props : MirrorInput) => {
     return encryptedText;
 }
 
-export default {MirrorMech};
+export default MirrorMech;

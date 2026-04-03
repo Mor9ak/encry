@@ -4,6 +4,7 @@ interface Props {
     label: string;
     encrypting: Function;
     alphabet?: string;
+    link?: string;
     inputPlaceholder1: string;
     inputPlaceholder2?: string;
     inputPlaceholder3?: string;
@@ -13,27 +14,46 @@ interface Props {
 
 const Section = (props : Props) => {
 
-    const [text, setText] = React.useState('Your text will be here');
+    const StandardText = "Text";
+    const StandardAlphabet = "abcdefghijklmnopqrstuvwxyz"
+
+    const [text, setText] = React.useState(StandardText);
     const [key, setKey] = React.useState(0);
-    const [alphabet, setAlphabet] = React.useState(props.alphabet);
+    const [alphabet, setAlphabet] = React.useState(StandardAlphabet);
 
-    const encrypted = props.encrypting({text, alphabet, key});
+    const encrypted = React.useMemo(() => {
+        return props.encrypting({text, alphabet, key});
+    }, [text, alphabet, key, props.encrypting]);
 
-    if (text.length <= 0) setText("Your text will be here");
-    if (props.alphabet !== undefined) {
-        if (alphabet && alphabet.length <= 0) setAlphabet(props.alphabet);
-    }
+    React.useEffect(() => {
+        if (props.alphabet && props.alphabet.length > 0) {
+            setAlphabet(props.alphabet);
+        } else if (props.alphabet === undefined || props.alphabet.length <= 0) {
+            setAlphabet(StandardAlphabet);
+        } else setAlphabet(StandardAlphabet);
+
+    }, [props.alphabet]);
 
     return (
-        <div className="text-white flex flex-col w-fit h-fit rounded-lg m-7 p-5 bg-[#4F772D]">
-            <a className={"flex items-center justify-center gap-2 text-2xl text-[#ECF39E]"} target={"_blank"} href={"https://ru.wikipedia.org/wiki/%D0%A8%D0%B8%D1%84%D1%80_%D0%A6%D0%B5%D0%B7%D0%B0%D1%80%D1%8F"}>
+        <div className="text-white flex flex-col w-fit h-fit rounded-lg p-5 bg-[#4F772D]">
+            <a className={"flex items-center justify-center gap-2 text-2xl text-[#ECF39E]"} target={"_blank"} href={props.link}>
                 {props.label}
             </a>
             <h3 className={"text-xl text-[#ECF39E] text-center"}>{encrypted}</h3>
             <div className={"*:border-2 *:p-2 *:rounded-lg *:border-[#31572C] *:border-collapse *:m-1 " +
-                "text-[#90A955] *:focus:text-[#ECF39E]"}>
-                <input type={"text"} onChange={((e : React.ChangeEvent<HTMLInputElement>) => setText(e.target.value))} placeholder={props.inputPlaceholder1}/>
-                {props.inputPlaceholder2 && <input type={"text"} onChange={(e : React.ChangeEvent<HTMLInputElement>) => setAlphabet(e.target.value)} placeholder={props.inputPlaceholder2}/>}
+                "text-[#90A955] *:focus:text-[#ECF39E] flex flex-row justify-center"}>
+                <input type={"text"} onChange={(e : React.ChangeEvent<HTMLInputElement>) => {
+                    const value = e.target.value;
+                    if (!value) {
+                        setText(StandardText);
+                    } else setText(value);
+                }} placeholder={props.inputPlaceholder1}/>
+                {props.inputPlaceholder2 && <input type={"text"} onChange={(e : React.ChangeEvent<HTMLInputElement>) => {
+                    const value = e.target.value;
+                    if (!value) {
+                        setAlphabet(StandardAlphabet)
+                    } else setAlphabet(value);
+                }} placeholder={props.inputPlaceholder2}/>}
                 {props.inputPlaceholder3 && <input type={"text"} onChange={(e : React.ChangeEvent<HTMLInputElement>) => setKey(Number(e.target.value))} placeholder={props.inputPlaceholder3}/>}
             </div>
         </div>

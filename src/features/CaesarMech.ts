@@ -25,4 +25,4 @@ const CaesarMech = (props: CaesarInput) => {
     }
     return text;
 }
-export default {CaesarMech};
+export default CaesarMech;
