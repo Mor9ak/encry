@@ -5,6 +5,7 @@ interface Props {
     encrypting: Function;
     alphabet?: string;
     link?: string;
+    standardText?: string;
     inputPlaceholder1: string;
     inputPlaceholder2?: string;
     inputPlaceholder3?: string;
@@ -14,10 +15,10 @@ interface Props {
 
 const Section = (props : Props) => {
 
-    const StandardText = "Text";
     const StandardAlphabet = "abcdefghijklmnopqrstuvwxyz"
+    const StandardText = "Text";
 
-    const [text, setText] = React.useState(StandardText);
+    const [text, setText] = React.useState(props.standardText || StandardText);
     const [key, setKey] = React.useState(0);
     const [alphabet, setAlphabet] = React.useState(StandardAlphabet);
 

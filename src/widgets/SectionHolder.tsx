@@ -5,6 +5,7 @@ import MirrorMech from "../features/MirrorMech";
 import IndexMech from  "../features/IndexMech";
 import AtbashMech from "../features/AtbashMech";
 import OneTwoMech from "../features/OneTwoMech";
+import IndexDecoderMech from "../features/IndexDecoderMech";
 
 const SectionHolder = () => {
     return (
@@ -44,6 +45,13 @@ const SectionHolder = () => {
                 link={"https://ru.wikipedia.org/wiki/%D0%9F%D0%B5%D1%80%D0%B5%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BE%D1%87%D0%BD%D1%8B%D0%B9_%D1%88%D0%B8%D1%84%D1%80"}
                 encrypting={OneTwoMech}
                 inputPlaceholder1={"Enter text"}
+            />
+            <Section
+                label={"Index decoder"}
+                standardText={"19042319"}
+                encrypting={IndexDecoderMech}
+                inputPlaceholder1={"Enter text"}
+                inputPlaceholder2={"Enter alphabet (english rn))"}
             />
         </div>
     );

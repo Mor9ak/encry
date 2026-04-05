@@ -12,6 +12,7 @@ Simple website for encrypting text.
 - **Caesar cipher** - shift letters by customizable step
 - **Mirror cipher** - revers your text
 - **Index cipher** - replays all chars in you text by indexes from chosen alphabet
+- **Index decoder** - helps decipher text encrypted with an index cipher
 - **Atbash cipher** - use reversed alphabet, A -> Z, B -> Y
 - **One to two cipher** - dividing text by pairs, and shuffle the chars in them.
 
