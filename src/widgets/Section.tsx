@@ -42,7 +42,7 @@ const Section = (props : Props) => {
             </a>
             <h3 className={"text-xl text-mainText text-center"}>{encrypted}</h3>
             <div className={"*:border-2 *:p-2 *:rounded-lg *:border-borderCol *:border-collapse *:m-1 " +
-                "text-secondaryText *:focus:text-mainText flex flex-row justify-center"}>
+                "text-secondaryText *:focus:text-mainText flex flex-col md:lg:flex-row justify-center"}>
                 <input type={"text"} onChange={(e : React.ChangeEvent<HTMLInputElement>) => {
                     const value = e.target.value;
                     if (!value) {
