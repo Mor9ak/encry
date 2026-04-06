@@ -36,13 +36,13 @@ const Section = (props : Props) => {
     }, [props.alphabet]);
 
     return (
-        <div className="text-white flex flex-col w-fit h-fit rounded-lg p-5 bg-[#4F772D]">
-            <a className={"flex items-center justify-center gap-2 text-2xl text-[#ECF39E]"} target={"_blank"} href={props.link}>
+        <div className="text-white flex flex-col w-fit h-fit rounded-lg p-5 bg-elementsBg">
+            <a className={"flex items-center justify-center gap-2 text-2xl text-mainText"} target={"_blank"} href={props.link}>
                 {props.label}
             </a>
-            <h3 className={"text-xl text-[#ECF39E] text-center"}>{encrypted}</h3>
+            <h3 className={"text-xl text-mainText text-center"}>{encrypted}</h3>
             <div className={"*:border-2 *:p-2 *:rounded-lg *:border-[#31572C] *:border-collapse *:m-1 " +
-                "text-[#90A955] *:focus:text-[#ECF39E] flex flex-row justify-center"}>
+                "text-secondaryText *:focus:text-mainText flex flex-row justify-center"}>
                 <input type={"text"} onChange={(e : React.ChangeEvent<HTMLInputElement>) => {
                     const value = e.target.value;
                     if (!value) {

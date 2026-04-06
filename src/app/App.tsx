@@ -1,10 +1,14 @@
 import SectionHolder from "../widgets/SectionHolder";
+import Header from "../widgets/Header";
+import Footer from "../widgets/Footer";
 
 
 const App = () => {
     return (
-        <div>
+        <div className={"justify-center"}>
+            <Header />
             <SectionHolder />
+            <Footer />
         </div>
     );
 }
