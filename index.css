@@ -7,3 +7,11 @@
     --color-secondaryText: #90A955;
     --color-borderCol: #31572C;
 }
+
+.mOfPage {
+    margin-left: max(5%, 7px);
+    margin-right: max(5%, 7px);
+}
+.gapParam {
+    gap: 7px;
+}
