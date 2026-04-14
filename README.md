@@ -7,7 +7,7 @@ Simple website for encrypting text.
 - Take text, alphabet and key
 - Immediately show encrypted text
 
-# Features
+## Features
 
 - **Caesar cipher** - shift letters by customizable step
 - **Mirror cipher** - revers your text
