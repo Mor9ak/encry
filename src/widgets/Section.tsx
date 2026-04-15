@@ -16,7 +16,7 @@ interface Props {
 const Section = (props : Props) => {
 
     const StandardAlphabet = "abcdefghijklmnopqrstuvwxyz"
-    const StandardText = "Text";
+    const StandardText = props.standardText === undefined ? "Text" : props.standardText;
 
     const [text, setText] = React.useState(props.standardText || StandardText);
     const [key, setKey] = React.useState(0);
