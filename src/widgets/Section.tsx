@@ -26,15 +26,6 @@ const Section = (props : Props) => {
         return props.encrypting({text, alphabet, key});
     }, [text, alphabet, key, props.encrypting]);
 
-    React.useEffect(() => {
-        if (props.alphabet && props.alphabet.length > 0) {
-            setAlphabet(props.alphabet);
-        } else if (props.alphabet === undefined || props.alphabet.length <= 0) {
-            setAlphabet(StandardAlphabet);
-        } else setAlphabet(StandardAlphabet);
-
-    }, [props.alphabet]);
-
     return (
         <div className="text-white flex flex-col w-fit h-fit rounded-lg p-5 bg-elementsBg">
             <a className={"flex items-center justify-center gap-2 text-2xl text-mainText"} target={"_blank"} href={props.link}>
