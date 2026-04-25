@@ -7,17 +7,21 @@
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "tailwindcss": "^4.2.2",
-    "vite": "^8.0.3"
+    "vite": "8.0.5"
   },
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "test": "vitest"
   },
   "name": "encry",
   "version": "1.0.0",
   "description": "",
-  "main": "vite.config.js",
+  "main": "vite.config.ts",
   "keywords": [],
   "author": "Mor9ak",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "devDependencies": {
+    "vitest": "^4.1.5"
+  }
 }
