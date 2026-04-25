@@ -31,7 +31,7 @@ const IndexDecoderMech = (props: IndexDecoderInput) => {
         if (!alphabet.has(parts[i])) {
             alphabet.set(alphabet.size.toString(), "?");
         }
-        encryptedText += alphabet.get(parts[i]);
+        encryptedText += alphabet.get(parts[i]) === undefined ? "?" : alphabet.get(parts[i]);
     }
     return encryptedText;
 }

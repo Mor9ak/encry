@@ -53,4 +53,12 @@ describe('Ciphers tests', () => {
             expect(OneTwoMech({text: 'абв'})).toMatch(/бав/);
         })
     })
+    describe('Ciphers extremal test', () => {
+
+        const engAlphabet='abcdefghijklmnopqrstuvwxyz';
+
+        test('Index decoder incorrect to ?: 06170404190813061 -> greeting?', () => {
+            expect(IndexDecoderMech({text: '06170404190813061', alphabet: engAlphabet})).toMatch('greeting?');
+        });
+    })
 })
