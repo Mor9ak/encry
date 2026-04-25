@@ -21,10 +21,24 @@ Simple website for encrypting text.
 - React
 - Tailwind CSS
 - Vite
+- Vitest
 
 ## Author 
 
 Mor9ak (Kazakou Yaraslau) - https://github.com/Mor9ak
+
+## Installation
+
+git clone https://github.com/Mor9ak/encry.git
+
+## Test coverage
+
+All ciphers mech (inside src/features) covered by a vitest.
+
+## Commands
+
+- npm run dev - to create dev version of site
+- npm test - to see test coverage
 
 ## Licence 
 
