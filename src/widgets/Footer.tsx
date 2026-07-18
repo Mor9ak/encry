@@ -2,10 +2,10 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer className={"bg-elementsBg justify-center uniWidth pt-3 rounded-lg items-center text-xl text-center md:fixed md:bottom-1 "}>
+        <footer className={"bg-elementsBg justify-center uniWidth py-3 rounded-lg items-center text-xl text-center md:fixed md:bottom-7 "}>
             <h1 className={"text-2xl text-mainText text-center"}>About this all</h1>
             <p className={"text-secondaryText"}>Encry - one of my portfolio project. Here i used React, Tailwind CSS, and Vite.</p>
-            <div className="flex justify-center *:mx-7 *:text-mainText *:p-3 *:rounded-lg *:cursor-pointer *:my-3 *:border-2 *:border-borderCol">
+            <div className="flex justify-center *:mx-7 *:text-mainText *:px-3 *:rounded-lg *:cursor-pointer *:mt-3 *:border-2 *:border-borderCol">
                 <a href={"https://github.com/Mor9ak"} target={"_blank"}>My Github</a>
                 <a href={"https://t.me/mor9ak"} target={"_blank"}>My telegram</a>
             </div>

@@ -9,7 +9,7 @@ import IndexDecoderMech from "../features/IndexDecoderMech";
 
 const SectionHolder = () => {
     return (
-        <div className="flex flex-wrap gapParam justify-center uniWidth">
+        <div className="flex flex-wrap gap-3 justify-center uniWidth">
             <Section
                 label={"Caesar"}
                 alphabet={"abcdefghijklmnopqrstuvwxyz"}

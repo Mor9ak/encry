@@ -8,9 +8,6 @@
     --color-borderCol: #9CB888;
 }
 @layer components {
-    .gapParam {
-        @apply gap-3;
-    }
     .uniWidth {
         @apply w-[95vw] md:w-[90vw];
     }
