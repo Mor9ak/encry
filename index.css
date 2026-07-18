@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-    --color-pageBg: #132A13;
-    --color-elementsBg: #4F772D;
-    --color-mainText: #ECF39E;
-    --color-secondaryText: #90A955;
-    --color-borderCol: #31572C;
+    --color-pageBg: #D0E0C4;
+    --color-elementsBg: #FFFFFF;
+    --color-mainText: #07140C;
+    --color-secondaryText: #1F5A30;
+    --color-borderCol: #9CB888;
 }
-
-.mOfPage {
-    margin-left: max(5%, 7px);
-    margin-right: max(5%, 7px);
-}
-.gapParam {
-    gap: 7px;
+@layer components {
+    .gapParam {
+        @apply gap-3;
+    }
+    .uniWidth {
+        @apply w-[95vw] md:w-[90vw];
+    }
 }

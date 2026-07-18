@@ -6,7 +6,7 @@ import '/index.css';
 
 const App = () => {
     return (
-        <div className={"justify-center flex flex-col gapParam mOfPage"}>
+        <div className={"flex flex-col items-center gapParam gap-7 w-full min-h-screen"}>
             <Header />
             <SectionHolder />
             <Footer />
