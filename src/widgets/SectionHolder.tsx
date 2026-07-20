@@ -10,7 +10,7 @@ import IndexDecoderMech from "../features/IndexDecoderMech";
 const SectionHolder = () => {
     return (
         <div className={"flex flex-col md:flex-row gap-3 items-center uniWidth"}>
-            <div className={"flex flex-col gap-3 *:w-full *:items-center"}>
+            <div className={"flex flex-col gap-3 w-full *:items-center"}>
                 <Section
                     label={"Caesar"}
                     alphabet={"abcdefghijklmnopqrstuvwxyz"}
@@ -37,7 +37,7 @@ const SectionHolder = () => {
                     inputPlaceholder2={"Enter alphabet (english rn))"}
                 />
             </div>
-            <div className={"flex flex-col gap-3 *:w-full *:items-center"}>
+            <div className={"flex flex-col gap-3 w-full *:items-center"}>
                 <Section
                     label={"Mirror"}
                     encrypting={MirrorMech}
