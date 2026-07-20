@@ -27,13 +27,13 @@ const Section = (props : Props) => {
     }, [text, alphabet, key, props.encrypting]);
 
     return (
-        <div className="text-white flex flex-col w-fit h-fit rounded-lg p-5 bg-elementsBg">
+        <div className="text-white flex flex-col h-fit rounded-lg p-5 bg-elementsBg">
             <a className={"flex items-center justify-center gap-2 text-2xl text-mainText"} target={"_blank"} href={props.link}>
                 {props.label}
             </a>
             <h3 className={"text-xl text-mainText text-center"}>{encrypted}</h3>
             <div className={"*:border-2 *:p-2 *:rounded-lg *:border-borderCol *:border-collapse *:m-1 " +
-                "text-secondaryText *:focus:text-mainText flex flex-col md:lg:flex-row justify-center"}>
+                "text-secondaryText flex flex-col md:lg:flex-row justify-center"}>
                 <input type={"text"} onChange={(e : React.ChangeEvent<HTMLInputElement>) => {
                     const value = e.target.value;
                     if (!value) {
