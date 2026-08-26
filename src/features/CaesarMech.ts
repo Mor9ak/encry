@@ -1,28 +1,32 @@
-interface CaesarInput {
-    text: string;
-    alphabet: string;
-    key: number;
-}
+const CaesarMech = ({ text, alphabet, key }: { text: string; alphabet: string; key: number }) => {
+    if (!alphabet) {
+        return text;
+    }
 
-const CaesarMech = (props: CaesarInput) => {
+    const normalizedAlphabet = alphabet.toLowerCase();
+    const alphabetLength = normalizedAlphabet.length;
+    const alphabetMap = new Map<string, number>(
+        normalizedAlphabet.split('').map((char: string, index: number) => [char, index])
+    );
 
-    const alphabet = props.alphabet.toLowerCase();
-    const key = props.key;
-    const inputText = props.text.toLowerCase();
+    const normalizedKey = ((key % alphabetLength) + alphabetLength) % alphabetLength;
+    const inputText = text.toLowerCase();
 
-    let text: string = "";
+    let result = "";
 
     for (let i = 0; i < inputText.length; i++) {
         const char = inputText.charAt(i);
-        const index = alphabet.indexOf(char);
+        const index = alphabetMap.get(char);
 
-        if (index !== -1) {
-            const newIndex = (index + key) % alphabet.length;
-            text += alphabet[newIndex];
+        if (index !== undefined) {
+            const newIndex = (index + normalizedKey) % alphabetLength;
+            result += normalizedAlphabet[newIndex];
         } else {
-            text += char;
+            result += char;
         }
     }
-    return text;
-}
+
+    return result;
+};
+
 export default CaesarMech;
