@@ -1,35 +1,31 @@
-interface IndexInput {
-    text: string;
-    alphabet: string;
-}
+const IndexMech = ({ text, alphabet }: { text: string; alphabet: string }): string => {
+    if (!text || !alphabet) return "";
 
-const IndexMech = (props: IndexInput) => {
+    const normalizedAlphabet = alphabet.toLowerCase();
+    const nullsWorker = Math.floor(normalizedAlphabet.length / 10).toString().length;
 
-    const text = props.text.toLowerCase();
-    const alphabetString = props.alphabet.toLowerCase();
-    let encryptedText = "";
+    const alphabetMap = new Map(
+        normalizedAlphabet.split('').map((char, index) => [
+            char,
+            index < 10 * nullsWorker
+                ? "0".repeat(nullsWorker) + index
+                : String(index)
+        ])
+    );
 
-    const alphabet = new Map<string, string>();
+    alphabetMap.set(" ", String(alphabetMap.size));
 
-    let nullsWorker = Math.floor(alphabetString.length / 10).toString().length;
+    const result: string[] = [];
+    const textLower = text.toLowerCase();
 
-    for (let i = 0; i < alphabetString.length; i++) {
-        if (i < 10 * nullsWorker) {
-            alphabet.set(alphabetString[i], "0".repeat(nullsWorker) + i.toString());
-        } else {
-            alphabet.set(alphabetString[i], i.toString())
+    for (const char of textLower) {
+        if (!alphabetMap.has(char)) {
+            alphabetMap.set(char, String(alphabetMap.size));
         }
-    }
-    alphabet.set(" ", alphabet.size.toString());
-
-    for (let i = 0; i < text.length; i++) {
-        if (!alphabet.has(text[i])) {
-            alphabet.set(text[i], alphabet.size.toString())
-        }
-        encryptedText += alphabet.get(text[i]);
+        result.push(alphabetMap.get(char)!);
     }
 
-    return encryptedText;
-}
+    return result.join('');
+};
 
 export default IndexMech;
