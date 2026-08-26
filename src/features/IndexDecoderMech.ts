@@ -1,39 +1,29 @@
-interface IndexDecoderInput {
-    text: string;
-    alphabet: string;
-}
+const IndexDecoderMech = ({text, alphabet}: { text: string; alphabet: string }): string => {
+    if (!text) return "";
 
-const IndexDecoderMech = (props: IndexDecoderInput) => {
+    const normalizedAlphabet = alphabet.toLowerCase();
+    const nullsWorker = Math.floor(normalizedAlphabet.length / 10).toString().length;
 
-    const text = props.text.toLowerCase();
-    const alphabetString = props.alphabet.toLowerCase();
-    let encryptedText = "";
-    let parts : string[] = [];
+    const alphabetMap = new Map(
+        normalizedAlphabet.split('').map((char, index) => [
+            index < 10 * nullsWorker
+                ? "0".repeat(nullsWorker) + index
+                : String(index),
+            char
+        ])
+    );
 
-    const alphabet = new Map<string, string>();
+    alphabetMap.set(String(alphabetMap.size), " ");
 
-    let nullsWorker = Math.floor(alphabetString.length / 10).toString().length;
+    const result: string[] = [];
+    const textLower = text.toLowerCase();
 
-    for (let i = 0; i < alphabetString.length; i++) {
-        if (i < 10 * nullsWorker) {
-            alphabet.set("0".repeat(nullsWorker) + i.toString(), alphabetString[i]);
-        } else {
-            alphabet.set(i.toString(), alphabetString[i]);
-        }
+    for (let i = 0; i < textLower.length; i += nullsWorker + 1) {
+        const code = textLower.substring(i, i + nullsWorker + 1);
+        result.push(alphabetMap.get(code) ?? "?");
     }
-    alphabet.set(alphabet.size.toString(), " ");
 
-    for (let i = 0; i < text.length; i += 1) {
-        parts.push(text.substring(i, i + nullsWorker + 1));
-        i += nullsWorker;
-    }
-    for (let i = 0; i < parts.length; i++) {
-        if (!alphabet.has(parts[i])) {
-            alphabet.set(alphabet.size.toString(), "?");
-        }
-        encryptedText += alphabet.get(parts[i]) === undefined ? "?" : alphabet.get(parts[i]);
-    }
-    return encryptedText;
-}
+    return result.join('');
+};
 
 export default IndexDecoderMech;
