@@ -3,27 +3,24 @@ interface AtbashInput {
     alphabet: string;
 }
 
-const AtbashMech = (props: AtbashInput) => {
+const AtbashMech = ({ text, alphabet }: AtbashInput): string => {
 
-    const rawAlphabet = props.alphabet.toLowerCase();
-    const text = props.text.toLowerCase();
+    if (!alphabet) return text;
 
-    const alphabet = new Map<string, string>();
-    let encryptedText = "";
+    const normalizedAlphabet = [...new Set(alphabet.toLowerCase())];
 
-    for (let i = 0; i < rawAlphabet.length; i++) {
-        alphabet.set(rawAlphabet[i], rawAlphabet[rawAlphabet.length - 1 - i]);
-    }
+    const atbashMap = new Map(
+        normalizedAlphabet.map((char, index, arr) => [
+            char,
+            arr[arr.length - 1 - index]
+        ])
+    );
 
-    for (let i = 0; i < text.length; i++) {
-        if (!alphabet.has(text[i])) {
-            encryptedText += text[i];
-            continue;
-        }
-        encryptedText += alphabet.get(text[i]);
-    }
-
-    return encryptedText;
-}
+    return text
+        .toLowerCase()
+        .split('')
+        .map(char => atbashMap.get(char) ?? char)
+        .join('');
+};
 
 export default AtbashMech;
