@@ -6,7 +6,62 @@
     --color-mainText: #07140C;
     --color-secondaryText: #1F5A30;
     --color-borderCol: #9CB888;
+
+    --color-pageBg-dark: #2a3d2a;
+    --color-elementsBg-dark: #1a2a1a;
+    --color-mainText-dark: #D0E0C4;
+    --color-secondaryText-dark: #7BA87B;
+    --color-borderCol-dark: #4a6b4a;
 }
+
+:root {
+    --color-pageBg: var(--color-pageBg);
+    --color-elementsBg: var(--color-elementsBg);
+    --color-mainText: var(--color-mainText);
+    --color-secondaryText: var(--color-secondaryText);
+    --color-borderCol: var(--color-borderCol);
+}
+
+.light {
+    --color-pageBg: #D0E0C4;
+    --color-elementsBg: #FFFFFF;
+    --color-mainText: #07140C;
+    --color-secondaryText: #1F5A30;
+    --color-borderCol: #9CB888;
+}
+
+.dark {
+    --color-pageBg: var(--color-pageBg-dark);
+    --color-elementsBg: var(--color-elementsBg-dark);
+    --color-mainText: var(--color-mainText-dark);
+    --color-secondaryText: var(--color-secondaryText-dark);
+    --color-borderCol: var(--color-borderCol-dark);
+}
+
+.bg-elementsBg {
+    background-color: var(--color-elementsBg);
+}
+
+.bg-pageBg {
+    background-color: var(--color-pageBg);
+}
+
+.text-mainText {
+    color: var(--color-mainText);
+}
+
+.text-secondaryText {
+    color: var(--color-secondaryText);
+}
+
+.border-borderCol {
+    border-color: var(--color-borderCol);
+}
+
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
 @layer components {
     .uniWidth {
         @apply w-[95vw] md:w-[90vw];
