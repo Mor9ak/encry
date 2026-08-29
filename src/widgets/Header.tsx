@@ -1,7 +1,7 @@
 import React from 'react';
 import {ThemeChanger} from "../features/theme/themeChanger";
 
-const Header = React.memo(() => {
+const Header = () => {
     return (
         <header className="relative bg-elementsBg py-3 rounded-lg mt-7 uniWidth">
             <div className="absolute top-3 right-3">
@@ -16,7 +16,7 @@ const Header = React.memo(() => {
             </div>
         </header>
     );
-});
+};
 
 Header.displayName = 'Header';
 
