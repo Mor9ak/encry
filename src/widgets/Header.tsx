@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeChanger } from "../shared/themeChanger";
+import {ThemeChanger} from "../features/theme/themeChanger";
 
 const Header = () => {
     return (
